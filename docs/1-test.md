@@ -24,33 +24,28 @@ parent: Main
 
 
 
-```
+\`\`\`python
 import os
-a = "test"
-```
-
+a \= "test"
+\`\`\`
 \<bash 예제 코드\>
 
 
 
-```
-git add filename
-```
+\`\`\`bash
 
 
-```
+\`\`\`json
 {
-  "test":"sentence",
-  "int":1,
+ "test":"sentence",
+ "int":1,
 }
-```
+\`\`\`
 
-
-```
+\`\`\`yaml
 test: 1
 test2: str
-```
-
+\`\`\`
 api test
 
 
