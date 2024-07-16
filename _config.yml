@@ -16,8 +16,8 @@
 title: s2jin blog
 description: description
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://s2jin.github.io/blog" # the base hostname & protocol for your site, e.g. http://example.com
-repository: s2jin/blog # for github-metadata
+url: "https://s2jin.github.io/test_blog" # the base hostname & protocol for your site, e.g. http://example.com
+repository: s2jin/test_blog # for github-metadata
 
 permalink: pretty
 
@@ -104,7 +104,7 @@ heading_anchors: true
 # Aux links for the upper right navigation
 aux_links:
  "HOME":
-   - "https://s2jin.github.io/blog"
+   - "https://s2jin.github.io/test_blog"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false
@@ -120,7 +120,7 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 # External navigation links
 nav_external_links:
   - title: test post
-    url: https://s2jin.github.io/blog/docs/test_post
+    url: https://s2jin.github.io/test_blog/docs/test_post
   - title: about ME
     url: https://s2jin.github.io/
 
@@ -146,7 +146,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/s2jin/blog" # the github URL for your repo
+gh_edit_repository: "https://github.com/s2jin/test_blog" # the github URL for your repo
 gh_edit_branch: "main" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately

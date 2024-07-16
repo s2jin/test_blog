@@ -19,7 +19,7 @@ function displayResult(result) {
 /** SITEMAP **/
 function generateSitemap(links) {
   const stream = new SitemapStream({
-    hostname: "https://s2jin.github.io/blog/",
+    hostname: "https://s2jin.github.io/test_blog/",
     lastmodDateOnly: true,
   })
   streamToPromise(Readable.from(links).pipe(stream)).then((data) => {
