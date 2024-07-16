@@ -1,7 +1,7 @@
 ---
 layout: minimal
 title: test
-nav_order: 4
+nav_order: 1
 published_date: 2024-07-16
 has_children: false
 parent: Main
@@ -9,12 +9,14 @@ parent: Main
 
 <a href='https://velog.io/@s2jin/test'>[[velog post]]</a>
 
+<p>&quot;python 예제 코드&quot;</p>
 
 ```python
 import os
-a = &quot;test&quot;
+a = "test"
 ```
 
+<p><bash 예제 코드></p>
 
 ```bash
 git add filename
@@ -23,8 +25,8 @@ git add filename
 
 ```json
 {
-  &quot;test&quot;:&quot;sentence&quot;,
-  &quot;int&quot;:1,
+  "test":"sentence",
+  "int":1,
 }
 ```
 
