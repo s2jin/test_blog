@@ -13,20 +13,32 @@ parent: Main
 <ol>
 <li>사용자를 추가한다. (adduser 명령어의 경우 홈 디렉토리도 함께 생성한다.)</li>
 </ol>
-<pre><code class="language-bash">sudo adduser [USERNAME]</code></pre>
+
+```bash
+sudo adduser [USERNAME]
+```
+
 <ol start="2">
 <li>사용자의 권한을 할당한다.</li>
 </ol>
-<pre><code class="language-bash">sudo vi /etc/group
+
+```bash
+sudo vi /etc/group
 
 ## in /etc/group
-sudo:x:user1,user2, ... # &lt;- 사용자 아이디 추가</code></pre>
+sudo:x:user1,user2, ... # &lt;- 사용자 아이디 추가
+```
+
 <h2 id="02-samba-설정">02. SAMBA 설정</h2>
 <p>다른 컴퓨터에서 파일 탐색기를 통해 해당 서버의 디렉토리에 접근하고자 할 때 필요한 설정이다.</p>
 <ol>
 <li>samba 사용자를 추가한다.</li>
 </ol>
-<pre><code class="language-bash">sudo smbpasswd -a [USERNAME]</code></pre>
+
+```bash
+sudo smbpasswd -a [USERNAME]
+```
+
 <ol start="2">
 <li>samba 설정 파일에 유저 정보를 추가한다.<ol>
 <li><code>[NAME]</code>: samba 접속 시 사용할 경로, path의 별칭</li>
@@ -35,7 +47,9 @@ sudo:x:user1,user2, ... # &lt;- 사용자 아이디 추가</code></pre>
 </ol>
 </li>
 </ol>
-<pre><code class="language-python">## in /etc/samba/smb.conf
+
+```python
+## in /etc/samba/smb.conf
 
 #======================= Share Definitions =======================
 ...
@@ -69,7 +83,9 @@ sudo:x:user1,user2, ... # &lt;- 사용자 아이디 추가</code></pre>
    printable = no
    create mask = 0750
 
-...</code></pre>
+...
+```
+
 <h3 id="1-samba-접속">1) samba 접속</h3>
 <h4 id="macos">MacOS</h4>
 <ol>

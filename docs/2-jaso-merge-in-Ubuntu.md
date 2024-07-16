@@ -15,7 +15,11 @@ parent: Main
 <li><p>이는 유니코드 포맷(NFD와 NFC의 차이)이 달라서 생기는 문제입니다.</p>
 </li>
 <li><p>다음 코드를 통해 파일명을 복구할 수 있습니다.</p>
-<pre><code class="language-bash">convmv -r --nfc --nosmart -f UTF-8 -t UTF-8 --notest [DIRECTORY]</code></pre>
+
+```bash
+convmv -r --nfc --nosmart -f UTF-8 -t UTF-8 --notest [DIRECTORY]
+```
+
 </li>
 <li><p><code>DIRECTORY</code> 부분을 파일명을 복구하고 싶은 디렉토리 경로로 지정해줍니다.</p>
 </li>
