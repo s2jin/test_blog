@@ -20,32 +20,45 @@ parent: Main
 </details>
 <br/>
 
-"python 예제 코드"
+"`python` 예제 코드"
 
 
 
-\`\`\`python
+```python
+
 import os
-a \= "test"
-\`\`\`
+a = "test"
+
+```
+
 \<bash 예제 코드\>
 
 
 
-\`\`\`bash
+```bash
+
+git add filename
+
+```
 
 
-\`\`\`json
+```json
+
 {
- "test":"sentence",
- "int":1,
+  "test":"sentence",
+  "int":1,
 }
-\`\`\`
 
-\`\`\`yaml
+```
+
+
+```yaml
+
 test: 1
 test2: str
-\`\`\`
+
+```
+
 api test
 
 
