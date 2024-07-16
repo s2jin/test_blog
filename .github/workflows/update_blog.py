@@ -10,16 +10,19 @@ def main():
     # example : rss_url = 'https://api.velog.io/rss/@rimgosu'
     rss_url = 'https://api.velog.io/rss/@s2jin'
 
-    # 'velog-posts' 폴더 경로
+    # 레포지토리 로드
     repo_path = '.'
+    repo = git.Repo(repo_path)
+
+
+    # 'velog-posts' 폴더 경로
     posts_dir = os.path.join(repo_path, 'docs')
     if os.path.exists(posts_dir):
-        [os.remove(os.path.join(x[0],y)) for x in os.walk(posts_dir) for y in x[-1]]
-        os.rmdir(posts_dir)
+#         [os.remove(os.path.join(x[0],y)) for x in os.walk(posts_dir) for y in x[-1]]
+#         os.rmdir(posts_dir)
+        git.rmtree(posts_dir)
     os.makedirs(posts_dir)
 
-    # 레포지토리 로드
-    repo = git.Repo(repo_path)
 
     # RSS 피드 파싱
     feed = feedparser.parse(rss_url)
@@ -41,9 +44,6 @@ def main():
 
     # 변경 사항을 깃허브에 푸시
     repo.git.push()
-
-def remove_file(filelist):
-    pass
 
 
 def refine(data, order=1):
@@ -76,8 +76,8 @@ def refine(data, order=1):
             'published_date': date,
             #'last_modified_date': '',
             'has_children': 'false',
-            #'parent': '',
-            'grand_parent': 'Main',
+            'parent': 'Main',
+            #'grand_parent': 'Main',
             }
 
     header = ['---']
