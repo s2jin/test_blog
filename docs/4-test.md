@@ -9,5 +9,11 @@ parent: Main
 
 <a href='https://velog.io/@s2jin/test'>[[velog post]]</a>
 
-<p>test
-sentence</p>
+<pre><code class="language-python">import os</code></pre>
+<pre><code class="language-bash">git add filename</code></pre>
+<pre><code class="language-json">{
+  &quot;test&quot;:&quot;sentence&quot;,
+  &quot;int&quot;:1,
+}</code></pre>
+<pre><code class="language-yaml">test: 1
+test2: str</code></pre>
