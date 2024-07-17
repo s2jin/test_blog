@@ -18,9 +18,9 @@ jobs:
 
     - name: Push changes
       run: |
-        git config --global user.name 's2jin'
-        git config --global user.email 'nous645@gmail.com'
-        git push https://s2jin${{ secrets.GH_PAT }}@github.com/s2jin/test_blog.git
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git push https://${{ secrets.GH_PAT }}@github.com/s2jin/test_blog.git
 
     - name: Set up Python
       uses: actions/setup-python@v2
