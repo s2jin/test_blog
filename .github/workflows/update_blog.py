@@ -42,10 +42,13 @@ def main():
 
         # 깃허브 커밋
         repo.git.add(filename)
-    repo.git.commit('-m', f'Add post: {datetime.now()}')
+    try:
+        repo.git.commit('-m', f'Add post: {datetime.now()}')
+        # 변경 사항을 깃허브에 푸시
+        repo.git.push()
+    except git.exc.GitCommandError as e:
+        pass
 
-    # 변경 사항을 깃허브에 푸시
-    repo.git.push()
 
 
 def refine(data, order=1):
