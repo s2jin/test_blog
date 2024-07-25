@@ -34,11 +34,13 @@ def main():
     # 각 글을 파일로 저장하고 커밋
     for ientry, entry in enumerate(entries):
 
-        filename, content = refine(entry, order=ientry+1)
+        filename, content, parent = refine(entry, order=ientry+1)
         filename = os.path.join(posts_dir, filename)
 
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(content)  # 글 내용을 파일에 작성
+
+        set_parent_page( os.path.join(repo_path, 'parent_doc', parent+'.md'), parent )
 
         # 깃허브 커밋
         repo.git.add(filename)
@@ -49,11 +51,41 @@ def main():
     except git.exc.GitCommandError as e:
         pass
 
+def set_parent_page(path, title):
+    path = path.replace(' ','-') 
+
+    if title == 'Main': return None
+    if os.path.exists(path): return None
+
+    header_map = {
+            'layout': 'minimal',
+            'title': title,
+            'parent': 'Main',
+            'nav_exclude': 'true',
+            'search_exclude': 'true',
+            'has_children': 'true',
+            }
+
+    header = ['---']
+    for k,v in header_map.items():
+        header.append( f"{k}: {v}" )
+    header.append('---')
+    header = '\n'.join(header)
+
+    with open(path, 'w') as f:
+        f.write(header)
 
 
 def refine(data, order=1):
 
     content = data.description
+
+    try:
+        parent = re.findall('<!--\[\[series:([^\]]*)\]\]-->', content)
+        parent = parent[0]
+    except IndexError as e:
+        parent = 'Main'
+
     content = set_content(content)
 
     date = datetime.strptime(data.published, '%a, %d %b %Y %H:%M:%S GMT')
@@ -66,9 +98,11 @@ def refine(data, order=1):
             'published_date': date,
             #'last_modified_date': '',
             'has_children': 'false',
-            'parent': 'Main',
-            #'grand_parent': 'Main',
+            'parent': parent,
             }
+    if parent != 'Main':
+        header_map['grand_parent'] = 'Main'
+        
 
     header = ['---']
     for k,v in header_map.items():
@@ -83,7 +117,7 @@ def refine(data, order=1):
     filename = link.strip().split('/')[-1]
     filename = f"{order}-{filename}.md"
 
-    return filename, content
+    return filename, content, parent
     
 def set_content(content):
     replace_map = { 
