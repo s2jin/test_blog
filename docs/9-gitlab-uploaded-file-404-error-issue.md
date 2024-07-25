@@ -1,13 +1,15 @@
 ---
 layout: minimal
 title: 업로드한 파일에 접근 시 404 에러 발생 문제
-nav_order: 6
+nav_order: 9
 published_date: 2024-07-24
 has_children: false
-parent: Main
+parent: GitLab과 Apache2
+grand_parent: Main
 ---
 
 <a href='https://velog.io/@s2jin/gitlab-uploaded-file-404-error-issue'>[[velog post]]</a>
+
 
 개요
 ==
@@ -40,9 +42,8 @@ parent: Main
 
 
 
-| 수정 부분 |
-| --- |
 | Project에서 `Settings > General > Visibility,project features, permissions` |
+| --- |
 |  |
 
 

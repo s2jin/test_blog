@@ -1,13 +1,15 @@
 ---
 layout: minimal
 title: GitLab과 Apache2 연동 및 Virtual host 설정
-nav_order: 4
+nav_order: 7
 published_date: 2024-07-24
 has_children: false
-parent: Main
+parent: GitLab과 Apache2
+grand_parent: Main
 ---
 
 <a href='https://velog.io/@s2jin/gitlab-apache2-integration-and-virtual-host-setup'>[[velog post]]</a>
+
 
 개요
 ==

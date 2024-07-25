@@ -1,13 +1,15 @@
 ---
 layout: minimal
 title: push할 때, internal API unreachable 문제
-nav_order: 5
+nav_order: 8
 published_date: 2024-07-24
 has_children: false
-parent: Main
+parent: GitLab과 Apache2
+grand_parent: Main
 ---
 
 <a href='https://velog.io/@s2jin/git-push-internal-api-unreachable-issue'>[[velog post]]</a>
+
 
 오류
 ==

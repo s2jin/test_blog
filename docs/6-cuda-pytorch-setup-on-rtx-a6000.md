@@ -1,7 +1,7 @@
 ---
 layout: minimal
 title: RTX A6000에서 cuda 및 pytorch 설정
-nav_order: 3
+nav_order: 6
 published_date: 2024-07-16
 has_children: false
 parent: Main

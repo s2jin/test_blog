@@ -1,13 +1,15 @@
 ---
 layout: minimal
 title: Linux 서버 사용자 추가 + SAMBA 설정
-nav_order: 1
+nav_order: 4
 published_date: 2024-07-16
 has_children: false
-parent: Main
+parent: Linux
+grand_parent: Main
 ---
 
 <a href='https://velog.io/@s2jin/add-user-linux-server-and-setting-samba'>[[velog post]]</a>
+
 
 01\. 리눅스 서버 사용자 추가
 ------------------
