@@ -4,7 +4,7 @@ title: git clone 시 Failed to connect to port 443 에러 발생
 nav_order: 2
 published_date: 2024-07-25
 has_children: false
-parent: GitHub와 Apache2
+parent: GitLab과 Apache2
 grand_parent: Main
 ---
 
