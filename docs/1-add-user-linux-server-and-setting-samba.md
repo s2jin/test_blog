@@ -60,9 +60,9 @@ sudo smbpasswd -a [USERNAME]
 #======================= Share Definitions =======================
 ...
 
-[sujin_home]
-   path = /home/sujin
-   valid users = sujin
+[s2jin_home]
+   path = /home/s2jin
+   valid users = s2jin
    read only = no
    writable = yes
    public = no
@@ -70,9 +70,9 @@ sudo smbpasswd -a [USERNAME]
    printable = no
    create mask = 0750
 
-[sujin_data1]
-   path = /mnt/data1/sujin
-   valid users = sujin
+[s2jin_data1]
+   path = /mnt/data1/s2jin
+   valid users = s2jin
    read only = no
    writable = yes
    public = no
@@ -81,7 +81,7 @@ sudo smbpasswd -a [USERNAME]
    create mask = 0750
 
 [specific_dir_shared]
-   path = /mnt/data1/sujin/project_A
+   path = /mnt/data1/s2jin/project_A
    read only = no
    writable = yes
    public = yes
@@ -100,8 +100,8 @@ sudo smbpasswd -a [USERNAME]
 
 1. Finder에서 `이동 > 서버에 연결` 또는 `command + k`로 네트워크 서버 연결 창에 접속한다.
 2. `smb://[SERVER_IP or DNS]/[NAME]/[DIR_PATH]`와 같은 형식을 입력한다.
-	1. (예) `smb://10.100.00.000/sujin_home/project_B/documents`  
-	→ `10.100.00.000` 서버의 `sujin_home(=/home/sujin)` 디렉토리 아래 `project_B/documents` 디렉토리를 연결
+	1. (예) `smb://10.100.00.000/s2jin_home/project_B/documents`  
+	→ `10.100.00.000` 서버의 `s2jin_home(=/home/s2jin)` 디렉토리 아래 `project_B/documents` 디렉토리를 연결
 
 
 03\. 방문자 계정으로 접근하기

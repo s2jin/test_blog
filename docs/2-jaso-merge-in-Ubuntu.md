@@ -18,4 +18,5 @@ parent: Main
 ```bash
 convmv -r --nfc --nosmart -f UTF-8 -t UTF-8 --notest [DIRECTORY]
 ```
+
 * `DIRECTORY` 부분을 파일명을 복구하고 싶은 디렉토리 경로로 지정해줍니다.
