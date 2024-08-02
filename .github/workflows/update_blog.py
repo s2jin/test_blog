@@ -34,13 +34,20 @@ def main():
     # 각 글을 파일로 저장하고 커밋
     for ientry, entry in enumerate(entries):
 
+        if entry.title != '업로드한 파일에 접근 시 404 에러 발생 문제': continue
+
         filename, content, parent = refine(entry, order=ientry+1)
         filename = os.path.join(posts_dir, filename)
+        print(content)
+        exit()
 
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(content)  # 글 내용을 파일에 작성
 
-        set_parent_page( os.path.join(repo_path, 'parent_doc', parent+'.md'), parent )
+        
+        parent_filepath = set_parent_page( os.path.join(repo_path, 'parent_doc', parent+'.md'), parent )
+        if parent_filepath:
+            repo.git.add(parent_filepath)
 
         # 깃허브 커밋
         repo.git.add(filename)
@@ -50,31 +57,6 @@ def main():
         repo.git.push()
     except git.exc.GitCommandError as e:
         pass
-
-def set_parent_page(path, title):
-    path = path.replace(' ','-') 
-
-    if title == 'Main': return None
-    if os.path.exists(path): return None
-
-    header_map = {
-            'layout': 'minimal',
-            'title': title,
-            'parent': 'Main',
-            'nav_exclude': 'true',
-            'search_exclude': 'true',
-            'has_children': 'true',
-            }
-
-    header = ['---']
-    for k,v in header_map.items():
-        header.append( f"{k}: {v}" )
-    header.append('---')
-    header = '\n'.join(header)
-
-    with open(path, 'w') as f:
-        f.write(header)
-
 
 def refine(data, order=1):
 
@@ -87,6 +69,7 @@ def refine(data, order=1):
         parent = 'Main'
 
     content = set_content(content)
+    print(content)
 
     date = datetime.strptime(data.published, '%a, %d %b %Y %H:%M:%S GMT')
     date = date.strftime('%Y-%m-%d')
@@ -145,9 +128,18 @@ def set_content(content):
         content = content.replace(t, replace_map['code_block'].format(l))
     content = content.replace('</code></pre>','</pre>')
 
+    ## convert img tag
+    targets = re.findall('<img [^>]*/>',content)
+    img_map = {d:f'img@{i}' for i,d in enumerate(targets)}
+    for img, img_key in img_map.items():
+        content = content.replace(img, img_key)
+
     ## html to markdown
     content = md(content, code_language_callback=lambda el:el['class'][0] if el.has_attr('class') else None)
 
+    ## replace img tag
+    for img, img_key in img_map.items():
+        content = content.replace(img_key, img)
 
     ## replace toc to html
     targets = re.findall('@@@TOC@@@', content)
@@ -162,6 +154,32 @@ def set_content(content):
         content = content.replace(t, replace_map['lab_post_api'].format(v))
 
     return content
+
+
+def set_parent_page(path, title):
+    path = path.replace(' ','-') 
+
+    if title == 'Main': return None
+    if os.path.exists(path): return None
+
+    header_map = {
+            'layout': 'minimal',
+            'title': title,
+            'parent': 'Main',
+            'nav_exclude': 'true',
+            'search_exclude': 'true',
+            'has_children': 'true',
+            }
+
+    header = ['---']
+    for k,v in header_map.items():
+        header.append( f"{k}: {v}" )
+    header.append('---')
+    header = '\n'.join(header)
+
+    with open(path, 'w') as f:
+        f.write(header)
+    return path
 
 
 
