@@ -38,12 +38,9 @@ def main():
 
         filename, content, parent = refine(entry, order=ientry+1)
         filename = os.path.join(posts_dir, filename)
-        print(content)
-        exit()
 
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(content)  # 글 내용을 파일에 작성
-
         
         parent_filepath = set_parent_page( os.path.join(repo_path, 'parent_doc', parent+'.md'), parent )
         if parent_filepath:
@@ -69,7 +66,6 @@ def refine(data, order=1):
         parent = 'Main'
 
     content = set_content(content)
-    print(content)
 
     date = datetime.strptime(data.published, '%a, %d %b %Y %H:%M:%S GMT')
     date = date.strftime('%Y-%m-%d')
