@@ -34,8 +34,6 @@ def main():
     # 각 글을 파일로 저장하고 커밋
     for ientry, entry in enumerate(entries):
 
-        if entry.title != '업로드한 파일에 접근 시 404 에러 발생 문제': continue
-
         filename, content, parent = refine(entry, order=ientry+1)
         filename = os.path.join(posts_dir, filename)
 
